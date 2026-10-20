@@ -7,7 +7,7 @@ import json
 # ============================================
 
 st.set_page_config(
-    page_title="Seven Moving AI Assistant",
+    page_title="Moving AI Assistant",
     page_icon="🚚",
     layout="wide"
 )
@@ -65,7 +65,7 @@ if "messages" not in st.session_state:
 
 with st.sidebar:
 
-    st.header("🚚 Seven Moving")
+    st.header("🚚 Moving")
 
     st.write("AI-powered company knowledge assistant")
 
@@ -83,10 +83,10 @@ with st.sidebar:
 # MAIN HEADER
 # ============================================
 
-st.title("🚚 Seven Moving AI Assistant")
+st.title("🚚 Moving AI Assistant")
 
 st.write(
-    "Ask me anything about Seven Moving services, "
+    "Ask me anything about Moving services, "
     "pricing, policies, and moving procedures."
 )
 
@@ -162,7 +162,7 @@ for message in st.session_state.messages:
 # ============================================
 
 question = st.chat_input(
-    "Ask a question about Seven Moving..."
+    "Ask a question about Moving..."
 )
 
 if question:
