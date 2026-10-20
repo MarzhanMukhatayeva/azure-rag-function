@@ -199,3 +199,9 @@ Open the local Streamlit URL displayed in the terminal.
 Marzhan Mukhatayeva
 
 AI Engineering Portfolio Project
+## Application Demo
+
+The screenshot below demonstrates the Streamlit chat interface
+of the Azure RAG AI Assistant.
+
+![Azure RAG AI Assistant Demo](images/rag-chat-demo.png)
