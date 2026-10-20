@@ -59,8 +59,13 @@ def hybrid_search(query: str, top_k: int = 3) -> list[dict]:
         select=["id", "content"],
         top=top_k
     )
-    return [{"id": r["id"], "content": r["content"]} for r in results]
-
+    return [
+    {
+        "id": r.get("id", "Unknown"),
+        "content": r.get("content", "")
+     }
+        for r in results
+    ]
 
 def generate_answer(question: str, context: str) -> str:
     response = openai_client.chat.completions.create(
@@ -155,11 +160,19 @@ def rag_query(req: func.HttpRequest) -> func.HttpResponse:
         # ----------------------------------------------------------
 
         response_body = {
-            "question": question,
-            "answer": answer,
-            "chunks_used": chunk_ids,
-            "status": "success"
+    "question": question,
+    "answer": answer,
+    "chunks_used": chunk_ids,
+    "sources": [
+        {
+            "id": chunk.get("id", "Unknown"),
+            "title": chunk.get("title", "Seven Moving Knowledge Base"),
+            "content": chunk.get("content", "")
         }
+        for chunk in chunks
+    ],
+    "status": "success"
+}
 
         return func.HttpResponse(
             json.dumps(response_body),
